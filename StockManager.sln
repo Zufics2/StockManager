@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManager", "StockManager\StockManager.csproj", "{D6C1BDAC-7808-4B8A-9753-54D611C1A2DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{1DE6A2BC-446A-4AEA-ABEC-74B0A7A2F2B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{D6C1BDAC-7808-4B8A-9753-54D611C1A2DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6C1BDAC-7808-4B8A-9753-54D611C1A2DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6C1BDAC-7808-4B8A-9753-54D611C1A2DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DE6A2BC-446A-4AEA-ABEC-74B0A7A2F2B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DE6A2BC-446A-4AEA-ABEC-74B0A7A2F2B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DE6A2BC-446A-4AEA-ABEC-74B0A7A2F2B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DE6A2BC-446A-4AEA-ABEC-74B0A7A2F2B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

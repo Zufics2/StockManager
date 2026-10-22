@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "bi3OpLlIsHA=",
+  "dgSpecHash": "K53NMJcTd6Y=",
   "success": true,
   "projectFilePath": "/Users/nurlansaterov/RiderProjects/StockManager/StockManager/StockManager.csproj",
   "expectedPackageFiles": [
     "/Users/nurlansaterov/.nuget/packages/microsoft.aspnetcore.openapi/10.0.11/microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512",
-    "/Users/nurlansaterov/.nuget/packages/microsoft.openapi/2.7.5/microsoft.openapi.2.7.5.nupkg.sha512",
-    "/Users/nurlansaterov/.nuget/packages/system.text.json/8.0.5/system.text.json.8.0.5.nupkg.sha512"
+    "/Users/nurlansaterov/.nuget/packages/microsoft.openapi/2.7.5/microsoft.openapi.2.7.5.nupkg.sha512"
   ],
   "logs": []
 }
