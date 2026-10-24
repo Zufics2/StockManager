@@ -1,0 +1,15 @@
+﻿# .NET Build results
+[Bb]in/
+[Oo]bj/
+[Ll]ogs/
+[Tt]emp/
+
+# IDEs (Rider, VS Code, Visual Studio)
+.vs/
+.idea/
+*.user
+*.suo
+.vscode/
+
+# User uploads / runtime assets
+wwwroot/uploads/
