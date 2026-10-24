@@ -1,4 +1,4 @@
-# StockManager — Inventory Management API
+# StockManager
 
 ASP.NET Core 10 Web API · PostgreSQL · EF Core (code-first) · JWT + Identity · MediatR (CQRS) · AutoMapper · FluentValidation · Polly · Swagger
 
