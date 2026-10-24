@@ -5,7 +5,7 @@ ASP.NET Core 10 Web API · PostgreSQL · EF Core (code-first) · JWT + Identity 
 ## Quick start
 
 ```bash
-# 1. PostgreSQL (example)
+# 1. PostgreSQL (example with using Docker, or do it manually)
 docker run -d --name stockmanager-db -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=stockmanager -p 5432:5432 postgres:17
 
 # 2. Secrets (do NOT keep real secrets in appsettings.json)
@@ -74,3 +74,5 @@ Errors are always `application/problem+json`; validation errors list every field
 * **Audit log**: any change to Product / Category / Supplier / Warehouse / StockMovement is journaled automatically by `ApplicationDbContext.SaveChangesAsync` (user, IP, old/new values as JSON); register / login / role changes are journaled by `AuthService`.
 * A product that has movements cannot be deleted (history is preserved).
 * `AutoMapper 14` is pinned deliberately (v15+ needs a license key); NuGet may show an advisory warning for it.
+---
+Developed by Saterov Aibar
