@@ -1,6 +1,6 @@
+using MediatR;
+using StockManager.Models.DTOs;
+
 namespace StockManager.Models.CQRS.Commands;
 
-public class CreateProductCommand
-{
-    
-}
+public record CreateProductCommand(ProductRequest Request) : IRequest<ProductResponse>;

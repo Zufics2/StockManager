@@ -1,30 +1,67 @@
+using Microsoft.EntityFrameworkCore;
+using StockManager.Service.Data;
+using StockManager.Service.Extensions;
+using StockManager.Service.Middlewares;
+using ServiceCollectionExtensions = StockManager.Service.Extensions.ServiceCollectionExtensions;
+
 namespace StockManager;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-
-        // Add services to the container.
-
-        builder.Services.AddControllers();
-        // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-        builder.Services.AddOpenApi();
+        var config = builder.Configuration;
+        
+        builder.Services
+            .AddApiControllers()
+            .AddPersistence(config)
+            .AddApplicationServices(config)
+            .AddCurrencyClient(config)
+            .AddJwtAuthentication(config)
+            .AddCorsPolicy(config)
+            .AddRateLimiting(config)
+            .AddSwaggerWithJwt();
 
         var app = builder.Build();
-
-        // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
+        
+        using (var scope = app.Services.CreateScope())
         {
-            app.MapOpenApi();
+            var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+            if (db.Database.IsRelational())
+            {
+                if (config.GetValue("Database:ApplyMigrationsOnStartup", true))
+                    await db.Database.MigrateAsync();
+            }
+            else
+            {
+                await db.Database.EnsureCreatedAsync();
+            }
+
+            await DbSeeder.SeedAsync(scope.ServiceProvider);
+        }
+        
+        app.UseMiddleware<LoggingMiddleware>(); 
+        app.UseMiddleware<ExceptionHandlerMiddleware>(); 
+
+        if (app.Environment.IsDevelopment() || config.GetValue<bool>("Swagger:Enabled"))
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "StockManager API v1"));
         }
 
-        app.UseAuthorization();
+        if (!app.Environment.IsDevelopment())
+            app.UseHttpsRedirection();
 
+        app.UseStaticFiles();                            
+        app.UseCors(ServiceCollectionExtensions.CorsPolicy);
+        app.UseRateLimiter();
+        app.UseAuthentication();
+        app.UseAuthorization();
 
         app.MapControllers();
 
-        app.Run();
+        await app.RunAsync();
     }
 }

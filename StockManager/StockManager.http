@@ -1,6 +1,88 @@
-@StockManager_HostAddress = http://localhost:5225
+@host = http://localhost:5225
+@token = PASTE_JWT_HERE
 
-GET {{StockManager_HostAddress}}/weatherforecast/
-Accept: application/json
+### Login as the seeded development admin (appsettings.Development.json)
+POST {{host}}/api/auth/login
+Content-Type: application/json
 
-###
+{ "email": "admin@stockmanager.local", "password": "Admin123!" }
+
+### Register (new users are Viewers)
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{ "email": "worker@example.com", "password": "Passw0rd1", "fullName": "Jane Worker" }
+
+### Categories
+POST {{host}}/api/categories
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "name": "Electronics", "description": "Gadgets" }
+
+### Warehouses
+POST {{host}}/api/warehouses
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "name": "Main warehouse", "location": "Almaty" }
+
+### Suppliers
+POST {{host}}/api/suppliers
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "name": "Acme Ltd", "contactEmail": "sales@acme.test", "phone": "+7 701 000 00 00" }
+
+### Products
+POST {{host}}/api/products
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "name": "USB-C cable 1m", "sku": "CABLE-USBC-1M", "price": 4.99, "categoryId": 1, "supplierId": 1 }
+
+### Search / filter / sort / page
+GET {{host}}/api/products?search=cable&categoryId=1&minPrice=1&maxPrice=20&sortBy=price&sortDirection=desc&page=1&pageSize=10
+Authorization: Bearer {{token}}
+
+### Price in another currency (external API)
+GET {{host}}/api/products/1/price?currency=KZT
+Authorization: Bearer {{token}}
+
+### Receipt
+POST {{host}}/api/stock-movements/receipts
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "productId": 1, "warehouseId": 1, "quantity": 100, "supplierId": 1, "unitCost": 2.5, "note": "PO-1001" }
+
+### Write-off (409 when stock is insufficient)
+POST {{host}}/api/stock-movements/write-offs
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "productId": 1, "warehouseId": 1, "quantity": 5, "reason": "Damaged in transit" }
+
+### Stock in a warehouse
+GET {{host}}/api/warehouses/1/stock
+Authorization: Bearer {{token}}
+
+### Movement history
+GET {{host}}/api/stock-movements?productId=1&type=Outgoing
+Authorization: Bearer {{token}}
+
+### Audit log (Admin)
+GET {{host}}/api/audit-logs?entityName=Product&sortDirection=desc
+Authorization: Bearer {{token}}
+
+### Product image (multipart)
+POST {{host}}/api/products/1/image
+Authorization: Bearer {{token}}
+Content-Type: multipart/form-data; boundary=X
+
+--X
+Content-Disposition: form-data; name="file"; filename="photo.png"
+Content-Type: image/png
+
+< ./photo.png
+--X--
