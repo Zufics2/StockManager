@@ -83,19 +83,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/nurlansaterov/.nuget/packages/": {}
+    "C:\\Users\\asate\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/nurlansaterov/RiderProjects/StockManager/StockManager/StockManager.csproj",
+      "projectUniqueName": "D:\\!AllProjects\\StockManager\\StockManager\\StockManager.csproj",
       "projectName": "StockManager",
-      "projectPath": "/Users/nurlansaterov/RiderProjects/StockManager/StockManager/StockManager.csproj",
-      "packagesPath": "/Users/nurlansaterov/.nuget/packages/",
-      "outputPath": "/Users/nurlansaterov/RiderProjects/StockManager/StockManager/obj/",
+      "projectPath": "D:\\!AllProjects\\StockManager\\StockManager\\StockManager.csproj",
+      "packagesPath": "C:\\Users\\asate\\.nuget\\packages\\",
+      "outputPath": "D:\\!AllProjects\\StockManager\\StockManager\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/nurlansaterov/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\asate\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -151,7 +151,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.400/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Users\\asate\\.dotnet\\sdk\\10.0.402/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

@@ -914,19 +914,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/nurlansaterov/.nuget/packages/": {}
+    "C:\\Users\\asate\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/nurlansaterov/RiderProjects/StockManager/Tests/Tests.csproj",
+      "projectUniqueName": "D:\\!AllProjects\\StockManager\\Tests\\Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "/Users/nurlansaterov/RiderProjects/StockManager/Tests/Tests.csproj",
-      "packagesPath": "/Users/nurlansaterov/.nuget/packages/",
-      "outputPath": "/Users/nurlansaterov/RiderProjects/StockManager/Tests/obj/",
+      "projectPath": "D:\\!AllProjects\\StockManager\\Tests\\Tests.csproj",
+      "packagesPath": "C:\\Users\\asate\\.nuget\\packages\\",
+      "outputPath": "D:\\!AllProjects\\StockManager\\Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/nurlansaterov/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\asate\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -991,7 +991,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.400/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Users\\asate\\.dotnet\\sdk\\10.0.402/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
